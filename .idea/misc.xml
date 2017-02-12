@@ -5,17 +5,10 @@
       <BehatSettings />
     </behat_settings>
   </component>
-  <component name="Git.Settings">
-    <option name="ROOT_SYNC" value="DONT_SYNC" />
-  </component>
   <component name="PhpUnit">
     <phpunit_settings>
       <PhpUnitSettings />
     </phpunit_settings>
-  </component>
-  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="MAMP PHP_5.6.2" />
-  <component name="ProjectDictionaryState">
-    <dictionary name="viniciusthiengo" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -42,9 +35,6 @@
     <OptionsSetting value="true" id="Edit" />
     <ConfirmationsSetting value="0" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
-  </component>
-  <component name="SvnConfiguration">
-    <configuration>$USER_HOME$/.subversion</configuration>
   </component>
   <component name="VagrantProjectSettings">
     <option name="instanceFolder" value="" />

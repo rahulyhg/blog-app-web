@@ -16,12 +16,13 @@
      * para não precisar configurar toda a APP para simples testes no backend.
      * */
     $dados = isset($_POST['metodo']) ? $_POST : $_GET;
+    header('X-Blog-App: ' . $dados['metodo']);
 
 
     if( strcasecmp( $dados['metodo'], 'get-posts' ) == 0 ){
         sleep(1);
-        $motosJson = AplPost::getPostsComoJson();
-        echo $motosJson;
+        $postsJson = AplPost::getPostsComoJson();
+        echo $postsJson;
     }
 
 
@@ -31,13 +32,21 @@
         $post->setEhFavorito( $dados['eh-favorito'] );
 
         $postJson = AplPost::updateFavoritoPost( $post );
-
-        header('X-Blog-App: ' . $dados['metodo']);
         echo $postJson;
     }
 
 
-    else if( strcasecmp( $dados['metodo'], 'novo-comentario-post' ) == 0 ){
+    else if( strcasecmp( $dados['metodo'], 'get-comentarios' ) == 0 ){
+        sleep(1);
+        $post = new Post();
+        $post->setId( $dados['id'] );
+
+        $comentariosJson = AplPost::getComentariosComoJson( $post );
+        echo $comentariosJson;
+    }
+
+
+    else if( strcasecmp( $dados['metodo'], 'novo-comentario' ) == 0 ){
         $user = new User();
         $user->setNome( $dados['nome'] );
 
@@ -55,7 +64,5 @@
         $post->setId( $dados['id'] );
 
         $comentarioJson = AplPost::insertComentario( $post, $comentario );
-
-        header('X-Blog-App: ' . $dados['metodo']);
         echo $comentarioJson;
     }
